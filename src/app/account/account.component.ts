@@ -13,12 +13,12 @@ export class AccountComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    if (typeof(localStorage) !== "undefined") {
-      this.user_info = JSON.parse(String(localStorage.getItem("user_info")));
-    }
-    if (this.user_info?.password == null) {
-      this.router.navigateByUrl("/login");
-    }
+    // if (typeof(localStorage) !== "undefined") {
+    //   this.user_info = JSON.parse(String(localStorage.getItem("user_info")));
+    // }
+    // if (this.user_info?.password == null) {
+    //   this.router.navigateByUrl("/login");
+    // }
   }
 
 }

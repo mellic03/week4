@@ -1,3 +1,4 @@
+const user = require('./user');
 const express = require('express');
 const bodyparser = require('body-parser');
 const path = require('path');
@@ -24,5 +25,5 @@ app.get('/', (req, res) => {
 
 app.post('/api/auth', (req, res) => {
   // Logic goes here
+  if (req.email != 0) console.log("email != 0");
 });
-

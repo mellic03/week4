@@ -15,12 +15,12 @@ export class ProfileComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    if (typeof(Storage) !== "undefined") {
-      this.user_info = JSON.parse(String(localStorage.getItem("user_info")));
-    }
-    if (this.user_info?.password == null) {
-      this.router.navigateByUrl("/login");
-    }
+    // if (typeof(Storage) !== "undefined") {
+    //   this.user_info = JSON.parse(String(localStorage.getItem("user_info")));
+    // }
+    // if (this.user_info?.password == null) {
+    //   this.router.navigateByUrl("/login");
+    // }
   }
 
   update_user_info() {
