@@ -1,22 +1,28 @@
 const express = require('express');
+const bodyparser = require('body-parser');
+const path = require('path');
+const cors = require('cors');
 const app = express();
+const http = require('http').Server(app);
 
-const cors = require('cors')
+
+app.use(express.static(path.join(__dirname + '/../dist/week4tut/')));
+app.use(bodyparser.json());
 app.use(cors());
 
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '../dist/week4tut'));
-console.log(__dirname);
-
-const http = require("http").Server(app);
 const PORT = 3000;
-const server = http.listen(PORT, function(){
-  console.log("Server listening on port " + PORT);
+const server = http.listen(PORT, () => {
+  let host = server.address().address;
+  let port = server.address().port;
+  console.log("Server running on " + PORT);
 });
 
-app.get('/api/auth', function(req, res){
-  res.sendFile(__dirname + '/../dist/week4tut/index.html');
-})
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.post('/api/auth', (req, res) => {
+  // Logic goes here
+});
+
